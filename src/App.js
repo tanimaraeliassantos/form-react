@@ -9,9 +9,10 @@ export default function App() {
     comments: "",
     isFriendly: true,
     employment: "",
+    favColor: "",
   });
 
-  console.log(formData.employment);
+  console.log(formData.favColor);
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
@@ -95,6 +96,21 @@ export default function App() {
         <br />
       </fieldset>
       <br />
+      <select
+        id="favColor"
+        value={formData.favColor}
+        onChange={handleChange}
+        name="favColor"
+      >
+        <option value="">---Choose---</option>
+        <option value="red">Red</option>
+        <option value="orange">orange</option>
+        <option value="yellow">yellow</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="indigo">indigo</option>
+        <option value="violet">violet</option>
+      </select>
     </form>
   );
 }
