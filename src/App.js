@@ -12,8 +12,6 @@ export default function App() {
     favColor: "",
   });
 
-  console.log(formData.favColor);
-
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
     setFormData((prevFormData) => {
@@ -24,8 +22,12 @@ export default function App() {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(formData);
+  }
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="First Name"
@@ -91,7 +93,6 @@ export default function App() {
           checked={formData.employment === "full-time"}
           onChange={handleChange}
         />
-        value
         <label htmlFor="full-time">Full-time</label>
         <br />
       </fieldset>
@@ -111,6 +112,9 @@ export default function App() {
         <option value="indigo">indigo</option>
         <option value="violet">violet</option>
       </select>
+      <br />
+      <br />
+      <button>Submit</button>
     </form>
   );
 }
